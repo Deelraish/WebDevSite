@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 2. Flexbox | Азбука веб-разработки</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/flex.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">&lt;/&gt;</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="tasks.html">Задания</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>Задание 2. Flexbox</h1>
+            <p>Вариант 3 — Илон Маск. Без JavaScript.</p>
+        </section>
+
+        <section class="content-grid">
+            <article class="text-block">
+                <h2>Интерактивный элемент</h2>
+
+                <div class="flexbox" tabindex="0">
+                    <div class="layer static">
+                        <img src="img/ilon1.png" alt="Парень в синем">
+                    </div>
+                    <div class="layer hover">
+                        <img src="img/ilon2.png" alt="Илон Маск">
+                        <p>Маск, как тебе такое?</p>
+                    </div>
+                    <div class="layer active">
+                        <img src="img/ilon3.png" class="rocket" alt="Ракета">
+                        <p>Это ещё не тесла :)</p>
+                    </div>
+                </div>
+
+                <p style="text-align:center; margin-top: 30px; color: #858585;">
+                    Наведи мышь → нажми и отпусти кнопку
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Азбука веб-разработки. Алленова А.И.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
