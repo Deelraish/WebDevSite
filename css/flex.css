@@ -1,0 +1,92 @@
+﻿/* ===== КОНТЕЙНЕР FLEXBOX (200x200) ===== */
+.flexbox {
+	width: 200px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background: #2d2d30;
+	border: 2px solid #569cd6;
+	border-radius: 12px;
+	margin: 0 auto;
+	cursor: pointer;
+	outline: none;
+	transition: filter 1s;
+	overflow: hidden;
+}
+
+/* ===== СЛОИ (картинка + текст) ===== */
+.layer {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px;
+	opacity: 0;
+	transition: opacity 0.6s;
+	text-align: center;
+}
+
+	.layer img {
+		max-width: 140px;
+		max-height: 140px;
+		object-fit: contain;
+	}
+
+	.layer p {
+		color: #4ec9b0;
+		font-size: 14px;
+		font-weight: bold;
+		margin: 0;
+	}
+
+	/* Статичное состояние видно всегда (пока нет hover/active) */
+	.layer.static {
+		opacity: 1;
+	}
+
+/* ===== НАВЕДЕНИЕ: статичное гаснет, появляется Маск ===== */
+.flexbox:hover .layer.static {
+	opacity: 0;
+}
+
+.flexbox:hover .layer.hover {
+	opacity: 1;
+}
+
+/* ===== НАЖАТИЕ: Маск гаснет, появляется ракета ===== */
+.flexbox:active .layer.hover {
+	opacity: 0;
+}
+
+.flexbox:active .layer.active {
+	opacity: 1;
+}
+
+/* ===== ПОСЛЕДНЕЕ СОСТОЯНИЕ: сепия (focus) ===== */
+.flexbox:focus:not(:active) {
+	filter: sepia(1);
+}
+
+/* ===== ПОЛЁТ РАКЕТЫ ПО ДИАГОНАЛИ ===== */
+.rocket {
+	transform: translate(-50px, 50px) rotate(-45deg);
+}
+
+.flexbox:active .rocket {
+	animation: fly 1.2s ease-in forwards;
+}
+
+@keyframes fly {
+	from {
+		transform: translate(-50px, 50px) rotate(-45deg);
+	}
+
+	to {
+		transform: translate(50px, -50px) rotate(-45deg);
+	}
+}
