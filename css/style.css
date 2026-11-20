@@ -1,169 +1,192 @@
-﻿/* ===== КОНТЕЙНЕР РИСУНКА ===== */
-.picture {
-    width: 200px;
-    height: 200px;
-    position: relative;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Consolas', 'Courier New', monospace;
+    line-height: 1.7;
+    color: #d4d4d4;
+    background: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
     margin: 0 auto;
-    overflow: hidden;
+    padding: 0 20px;
 }
 
-/* ===== РЕЛЬСЫ ===== */
-.rail {
-    position: absolute;
-    bottom: 12px;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: #e67e22;
+/* ===== ШАПКА ===== */
+header {
+    background: #252526;
+    color: #d4d4d4;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #569cd6;
 }
 
-/* ===== КОЛЁСА ===== */
-.wheel {
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background: #8b5a2b;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background: #1e1e1e;
+    border: 2px solid #569cd6;
     border-radius: 50%;
-    bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #4ec9b0;
+    font-size: 14px;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Consolas', monospace;
 }
 
-    /* серый треугольник внутри колеса */
-    .wheel::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -45%);
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 8px solid #95a5a6;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #d4d4d4;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4ec9b0;
+}
+
+/* ===== ГЛАВНОЕ ===== */
+main {
+    flex: 1;
+    padding: 40px 0;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    color: #569cd6;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #ce9178;
+}
+
+/* ===== КОНТЕНТ ===== */
+.content-grid {
+    background: #252526;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid #3e3e42;
+}
+
+.text-block h2 {
+    font-size: 1.8rem;
+    color: #4ec9b0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ce9178;
+    display: inline-block;
+}
+
+.story-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.story-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text p {
+    text-align: justify;
+    font-size: 16px;
+    color: #d4d4d4;
+}
+
+.story-image {
+    flex: 1;
+    max-width: 45%;
+}
+
+.story-image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+    border: 1px solid #3e3e42;
+}
+
+.story-image img:hover {
+    transform: scale(1.03);
+}
+
+.story-image .caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #858585;
+    font-style: italic;
+}
+
+/* ===== ПОДВАЛ ===== */
+footer {
+    background: #252526;
+    color: #858585;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    border-top: 2px solid #569cd6;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
     }
 
-.wheel1 {
-    left: 45px;
-}
+    .content-grid {
+        padding: 20px;
+    }
 
-.wheel2 {
-    left: 75px;
-}
+    .story-block {
+        flex-direction: column !important;
+    }
 
-.wheel3 {
-    left: 120px;
-}
+    .story-image {
+        max-width: 100%;
+    }
 
-.wheel4 {
-    left: 150px;
-}
-
-/* ===== ТЕЛО ПАРОВОЗА (зелёный двигатель) ===== */
-.engine {
-    position: absolute;
-    left: 30px;
-    bottom: 40px;
-    width: 75px;
-    height: 35px;
-    background: #27ae60;
-}
-
-/* ===== БУФЕР (красная полусфера спереди) ===== */
-.buffer {
-    position: absolute;
-    left: 15px;
-    bottom: 45px;
-    width: 25px;
-    height: 25px;
-    background: #c0392b;
-    border-radius: 50% 0 0 50%;
-}
-
-/* ===== КАБИНА (красная рамка) ===== */
-.cabin {
-    position: absolute;
-    left: 70px;
-    bottom: 75px;
-    width: 40px;
-    height: 45px;
-    border: 4px solid #c0392b;
-}
-
-/* ===== ОКНО КАБИНЫ (зелёный квадрат) ===== */
-.cabin-window {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 20px;
-    height: 20px;
-    background: #27ae60;
-}
-
-/* ===== ТРУБА ===== */
-.chimney {
-    position: absolute;
-    left: 45px;
-    bottom: 75px;
-    width: 10px;
-    height: 35px;
-    background: #e67e22;
-}
-
-/* красный верх трубы */
-.chimney-top {
-    position: absolute;
-    left: 42px;
-    bottom: 110px;
-    width: 16px;
-    height: 6px;
-    background: #c0392b;
-}
-
-/* ===== ВАГОН ===== */
-.wagon-top {
-    position: absolute;
-    left: 110px;
-    bottom: 60px;
-    width: 55px;
-    height: 18px;
-    background: #f1c40f;
-}
-
-.wagon-bottom {
-    position: absolute;
-    left: 110px;
-    bottom: 40px;
-    width: 55px;
-    height: 20px;
-    background: #3498db;
-}
-
-/* ===== ДЫМ ===== */
-.smoke {
-    position: absolute;
-    background: #aed6f1;
-    border-radius: 50%;
-}
-
-.smoke1 {
-    left: 50px;
-    bottom: 120px;
-    width: 14px;
-    height: 14px;
-}
-
-.smoke2 {
-    left: 68px;
-    bottom: 140px;
-    width: 12px;
-    height: 12px;
-}
-
-.smoke3 {
-    left: 85px;
-    bottom: 158px;
-    width: 10px;
-    height: 10px;
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
 }
